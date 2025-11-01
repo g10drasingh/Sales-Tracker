@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { XIcon } from './Icons';
+// Fix: Added .tsx extension to ensure module resolution.
+import { XIcon } from './Icons.tsx';
 
 interface ModalProps {
   isOpen: boolean;

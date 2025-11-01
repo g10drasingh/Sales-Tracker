@@ -1,48 +1,52 @@
+export interface Detail {
+  id: number;
+  name: string;
+}
 
-export enum ProductCategory {
-  CPU = 'CPU',
-  RAM = 'RAM',
-  Cooler = 'Cooler',
-  Motherboard = 'Motherboard',
-  Storage = 'Storage',
-  GPU = 'GPU',
-  PSU = 'PSU',
-  Case = 'Case',
+export interface Subcategory {
+  id: number;
+  name: string;
+  details: Detail[];
+}
+
+export interface Category {
+  id: number;
+  name: string;
+  subcategories: Subcategory[];
 }
 
 export interface Product {
-  id: string;
+  id: number;
   name: string;
-  category: ProductCategory;
-  brand: string;
-  quantity: number;
+  categoryId: number;
+  vendorId: number;
+  stock: number;
   price: number;
-  // Optional attributes
-  storage?: string; // for Storage (e.g., "1TB SSD")
-  frequency?: string; // for RAM (e.g., "3200MHz")
-  cores?: string; // for CPU (e.g., "8 Cores / 16 Threads")
+  attributes: { [subcategoryId: number]: number }; // e.g. { 101: 1011 } -> { Brand: Intel }
 }
 
 export interface Customer {
-  id: string;
+  id: number;
   name: string;
   email: string;
   phone: string;
+  address: string;
 }
 
 export interface Vendor {
-  id: string;
+  id: number;
   name: string;
+  address: string;
   contactPerson: string;
+  mobile: string;
+  phone: string;
   email: string;
 }
 
 export interface Sale {
-  id: string;
-  customerName: string;
-  products: { productName: string; quantity: number; price: number }[];
-  totalAmount: number;
-  date: string; // ISO string format
+  id: number;
+  productId: number;
+  quantity: number;
+  totalPrice: number;
+  date: string;
 }
-
-export type View = 'dashboard' | 'stocks' | 'customers' | 'vendors';
