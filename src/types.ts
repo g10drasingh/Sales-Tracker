@@ -1,28 +1,12 @@
-export interface Detail {
-  id: number;
-  name: string;
-}
-
-export interface Subcategory {
-  id: number;
-  name: string;
-  details: Detail[];
-}
-
-export interface Category {
-  id: number;
-  name: string;
-  subcategories: Subcategory[];
-}
-
 export interface Product {
   id: number;
   name: string;
+  description?: string;
+  price: number;
+  stock: number;
   categoryId: number;
   vendorId: number;
-  stock: number;
-  price: number;
-  attributes: { [subcategoryId: number]: number }; // e.g. { 101: 1011 } -> { Brand: Intel }
+  attributes?: { [key: number]: number };
 }
 
 export interface Customer {
@@ -46,7 +30,25 @@ export interface Vendor {
 export interface Sale {
   id: number;
   productId: number;
+  customerId?: number;
   quantity: number;
   totalPrice: number;
   date: string;
+}
+
+export interface Detail {
+  id: number;
+  name: string;
+}
+
+export interface Subcategory {
+  id: number;
+  name: string;
+  details: Detail[];
+}
+
+export interface Category {
+  id: number;
+  name: string;
+  subcategories: Subcategory[];
 }

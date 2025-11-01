@@ -1,4 +1,4 @@
-import { Product, Customer, Vendor, Sale, Category } from './types.ts';
+import { Product, Customer, Vendor, Sale, Category } from './types';
 
 export const mockCategories: Category[] = [
   {
