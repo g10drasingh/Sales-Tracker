@@ -1,0 +1,5 @@
+{
+  "name": "S3 Tech Sales Tracker",
+  "description": "A comprehensive sales and inventory tracking application for S3 Tech Pvt Ltd, designed to manage computer parts stock, customers, and vendors with an intuitive dashboard.",
+  "requestFramePermissions": []
+}
